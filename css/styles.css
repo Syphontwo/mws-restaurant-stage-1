@@ -38,8 +38,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-	display: flex;
-	flex-flow: row, wrap;
 }
 #footer {
   background-color: #444;
@@ -100,17 +98,9 @@ nav h1 a {
     text-decoration: underline;
 }
 /* ====================== Map ====================== */
-section #map-container {
-  background: blue none repeat scroll 0 0;
-  height: auto;
-	width: auto;
-	flex: 0, 1, auto;
-	order: 2;
-}
 #map {
   height: 400px;
-  width: 60vw;
-	min-width: 320px;
+  width: 100%;
   background-color: #ccc;
 }
 /* ====================== Restaurant Filtering ====================== */
@@ -141,12 +131,6 @@ section #map-container {
 }
 
 /* ====================== Restaurant Listing ====================== */
-section #listings {
-	flex: 0, 1, auto;
-	width: auto;
-	height: auto;
-	order: 1;
-}
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
@@ -227,7 +211,7 @@ section #listings {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 48%;
+  width: 47%;
 }
 #restaurant-name {
   color: #f18200;
