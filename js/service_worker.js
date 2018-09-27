@@ -1,4 +1,7 @@
-console.log('Service Worker: Registered');
+// adapted from Matthew Cranford's code.  Major props to him in helping me
+// understand all this
+// https://matthewcranford.com/
+
 const cacheFiles = [
   '/',
   '/index.html',
