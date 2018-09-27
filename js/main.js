@@ -5,6 +5,18 @@ var newMap
 var markers = []
 
 /**
+ * Get the service worker if supported
+ */
+if ('serviceWorker' in navigator){
+  navigator.serviceWorker
+  .register('/js/service_worker.js').catch(
+    function(error){
+      console.error(error);
+    }
+  );
+}
+
+/**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
