@@ -2,8 +2,6 @@
 // understand all this
 // https://matthewcranford.com/
 
-console.log('Service Worker Registered');
-
 const cacheFiles = [
   '/',
   '/index.html',
@@ -26,7 +24,6 @@ const cacheFiles = [
 ];
 
 self.addEventListener('install', function(evnt){
-  console.log('Event Called: install');
   evnt.waitUntil(
     caches.open('v1').then(
       function(cache){
@@ -37,16 +34,13 @@ self.addEventListener('install', function(evnt){
 });
 
 self.addEventListener('fetch', function(evnt){
-  console.log('Event Called: fetch');
   evnt.respondWith(
     caches.match(evnt.request).then(
       function(response){
         if (response){
-          console.log('found ', evnt.request, ' in cache');
           return response;
         }
         else{
-          console.log('Counld Not Find ', evnt.request, ' in cache');
           return fetch(evnt.request).then(
             function(response){
               const cloneResponse = response.clone();
