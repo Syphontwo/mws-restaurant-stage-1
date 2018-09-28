@@ -161,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = 'Picture of ' + restaurant.name;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -179,7 +180,7 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   more.tabIndex = '3';
-  var ariaLabel = document.createAttribute('aria-label');
+  const ariaLabel = document.createAttribute('aria-label');
   ariaLabel.value = restaurant.name;
   more.setAttributeNode(ariaLabel);
   li.append(more)

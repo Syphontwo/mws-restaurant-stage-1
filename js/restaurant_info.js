@@ -74,6 +74,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = 'Picture of ' + restaurant.name;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.tabIndex = '4';
@@ -163,7 +164,13 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
-  li.innerHTML = restaurant.name;
+  const a = document.createElement('a');
+  const ariaCurrent = document.createAttribute('aria-current');
+  ariaCurrent.value = 'page';
+  a.setAttributeNode(ariaCurrent);
+  a.innerHTML = restaurant.name;
+  a.href = './restaurant.html?id=' + restaurant.id;
+  li.appendChild(a);
   breadcrumb.appendChild(li);
 }
 
